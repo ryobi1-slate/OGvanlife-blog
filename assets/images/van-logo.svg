@@ -1,0 +1,21 @@
+<svg width="36" height="22" viewBox="0 0 36 22" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OG Van Life van icon">
+  <!-- Van body -->
+  <rect x="1" y="5" width="34" height="13" rx="1.5" fill="none" stroke="#C8B28A" stroke-width="1.2"/>
+  <!-- Cab section -->
+  <path d="M22 5 L22 1 Q22 0.5 21.5 0.5 L9 0.5 Q8 0.5 7 1.5 L4 5" stroke="#C8B28A" stroke-width="1.2" fill="none"/>
+  <!-- Side window (front) -->
+  <rect x="9" y="1.5" width="5" height="3.5" rx="0.4" fill="#C8B28A" opacity="0.4"/>
+  <!-- Side window (rear cab) -->
+  <rect x="15.5" y="1.5" width="5.5" height="3.5" rx="0.4" fill="#C8B28A" opacity="0.4"/>
+  <!-- Rear vent lines -->
+  <line x1="27" y1="7" x2="27" y2="16" stroke="#C8B28A" stroke-width="0.8" opacity="0.4"/>
+  <line x1="30" y1="7" x2="30" y2="16" stroke="#C8B28A" stroke-width="0.8" opacity="0.4"/>
+  <!-- Front wheel -->
+  <circle cx="8.5" cy="18" r="3.5" fill="none" stroke="#C8B28A" stroke-width="1.2"/>
+  <circle cx="8.5" cy="18" r="1.5" fill="#C8B28A" opacity="0.5"/>
+  <!-- Rear wheel -->
+  <circle cx="27.5" cy="18" r="3.5" fill="none" stroke="#C8B28A" stroke-width="1.2"/>
+  <circle cx="27.5" cy="18" r="1.5" fill="#C8B28A" opacity="0.5"/>
+  <!-- Roof rack rail -->
+  <line x1="7" y1="0.5" x2="22" y2="0.5" stroke="#C8B28A" stroke-width="1.2" opacity="0.6"/>
+</svg>

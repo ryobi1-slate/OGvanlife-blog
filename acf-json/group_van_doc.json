@@ -1,0 +1,235 @@
+[
+  {
+    "key": "group_van_doc_fields",
+    "title": "Van Doc Fields",
+    "fields": [
+      {
+        "key": "field_doc_id",
+        "label": "Document ID",
+        "name": "doc_id",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Short alphanumeric document identifier. E.g. EL-001, SF-002.",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "30",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "EL-001",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_doc_tag",
+        "label": "System Tag",
+        "name": "doc_tag",
+        "aria-label": "",
+        "type": "select",
+        "instructions": "The primary system category for this document.",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "40",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "ELECTRICAL": "ELECTRICAL",
+          "SAFETY": "SAFETY",
+          "INSULATION": "INSULATION",
+          "PLUMBING": "PLUMBING",
+          "SYSTEM": "SYSTEM"
+        },
+        "default_value": "SYSTEM",
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 0,
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_read_time",
+        "label": "Read Time",
+        "name": "read_time",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "Estimated read time shown on the card. E.g. 22 MIN.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "30",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "22 MIN",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_spec_1_label",
+        "label": "Spec 1 — Label",
+        "name": "spec_1_label",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "BATTERY BANK",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_spec_1_value",
+        "label": "Spec 1 — Value",
+        "name": "spec_1_value",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "200Ah LiFePO4",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_spec_2_label",
+        "label": "Spec 2 — Label",
+        "name": "spec_2_label",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "CHARGE RATE",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_spec_2_value",
+        "label": "Spec 2 — Value",
+        "name": "spec_2_value",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "0.2C (40A MAX)",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_spec_3_label",
+        "label": "Spec 3 — Label",
+        "name": "spec_3_label",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "USABLE CAPACITY",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_spec_3_value",
+        "label": "Spec 3 — Value",
+        "name": "spec_3_value",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "180Ah (90% DoD)",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_schematic_svg",
+        "label": "Schematic SVG",
+        "name": "schematic_svg",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "Paste raw SVG markup for the card schematic. Will be output unescaped. Keep viewBox at 200x70 for consistent card layout.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "rows": 8,
+        "new_lines": "",
+        "maxlength": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "van_doc"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Technical specification fields for Van Doc posts.",
+    "show_in_rest": 0,
+    "modified": 1740268800
+  }
+]

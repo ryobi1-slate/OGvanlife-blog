@@ -1,0 +1,103 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:html -->
+<main class="ogvl-archive" role="main" id="main-content">
+  <div class="ogvl-archive__inner">
+
+    <!-- Archive header -->
+    <header class="ogvl-archive__header">
+      <p class="ogvl-section-pre-label">— DOCUMENTATION INDEX</p>
+      <h1 class="ogvl-archive__title">
+        <?php
+        if ( is_tax() ) {
+          echo 'SYSTEM: ' . single_term_title( '', false );
+        } else {
+          echo 'ALL VAN DOCS';
+        }
+        ?>
+      </h1>
+      <p class="ogvl-archive__count ogvl-mono-label">
+        <?php echo esc_html( $wp_query->found_posts ); ?> DOCUMENTS
+      </p>
+    </header>
+
+    <!-- Filter pills (taxonomy terms) -->
+    <div class="ogvl-filter-pills" role="group" aria-label="Filter by system">
+      <a href="<?php echo esc_url( get_post_type_archive_link( 'van_doc' ) ); ?>" class="ogvl-filter-pill<?php echo ! is_tax() ? ' ogvl-filter-pill--active' : ''; ?>">ALL</a>
+      <?php
+      $terms = get_terms( [ 'taxonomy' => 'doc_system', 'hide_empty' => true ] );
+      foreach ( $terms as $term ) :
+        $active = is_tax( 'doc_system', $term->slug );
+      ?>
+        <a href="<?php echo esc_url( get_term_link( $term ) ); ?>"
+           class="ogvl-filter-pill<?php echo $active ? ' ogvl-filter-pill--active' : ''; ?>"
+           aria-current="<?php echo $active ? 'page' : 'false'; ?>"
+        ><?php echo esc_html( strtoupper( $term->name ) ); ?></a>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- Doc grid -->
+    <div class="ogvl-article-grid" role="list">
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+        $doc_id  = get_field( 'doc_id' )   ?: '—';
+        $tag     = get_field( 'doc_tag' )   ?: 'SYSTEM';
+        $read    = get_field( 'read_time' ) ?: '—';
+        $updated = get_the_modified_date( 'Y-m' );
+        $specs   = [];
+        for ( $s = 1; $s <= 3; $s++ ) {
+          $l = get_field( "spec_{$s}_label" );
+          $v = get_field( "spec_{$s}_value" );
+          if ( $l && $v ) $specs[] = [ 'label' => $l, 'value' => $v ];
+        }
+      ?>
+
+        <article class="article-card" role="listitem" data-tag="<?php echo esc_attr( $tag ); ?>">
+          <div class="article-card__header">
+            <span class="category-tag"><?php echo esc_html( $tag ); ?></span>
+            <span class="ogvl-mono-label"><?php echo esc_html( $doc_id ); ?></span>
+          </div>
+          <div class="article-card__body">
+            <h2 class="article-card__title">
+              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </h2>
+            <p class="article-card__desc"><?php echo esc_html( get_the_excerpt() ); ?></p>
+            <?php if ( $specs ) : ?>
+              <dl class="article-card__specs">
+                <?php foreach ( $specs as $spec ) : ?>
+                  <div class="article-card__spec-row">
+                    <dt><?php echo esc_html( $spec['label'] ); ?></dt>
+                    <dd><?php echo esc_html( $spec['value'] ); ?></dd>
+                  </div>
+                <?php endforeach; ?>
+              </dl>
+            <?php endif; ?>
+          </div>
+          <div class="article-card__footer">
+            <span class="ogvl-mono-label">UPD <?php echo esc_html( $updated ); ?></span>
+            <a href="<?php the_permalink(); ?>" class="article-card__read-link">
+              <?php echo esc_html( $read ); ?> READ <span aria-hidden="true" class="article-card__arrow">→</span>
+            </a>
+          </div>
+        </article>
+
+      <?php endwhile; else : ?>
+        <p class="ogvl-no-posts">No documents found in this category.</p>
+      <?php endif; ?>
+    </div>
+
+    <!-- WP Pagination -->
+    <nav class="ogvl-pagination" aria-label="Archive pagination">
+      <?php
+      echo paginate_links( [
+        'prev_text' => '← PREV',
+        'next_text' => 'NEXT →',
+        'type'      => 'list',
+      ] );
+      ?>
+    </nav>
+
+  </div>
+</main>
+<!-- /wp:html -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

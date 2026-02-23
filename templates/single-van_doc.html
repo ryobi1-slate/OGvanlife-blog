@@ -1,0 +1,90 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:html -->
+<main class="ogvl-single" role="main" id="main-content">
+  <div class="ogvl-single__inner">
+
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+
+      $doc_id  = get_field( 'doc_id' )       ?: '';
+      $tag     = get_field( 'doc_tag' )       ?: 'SYSTEM';
+      $read    = get_field( 'read_time' )     ?: '';
+      $updated = get_the_modified_date( 'Y-m-d' );
+
+      $specs = [];
+      for ( $s = 1; $s <= 3; $s++ ) {
+        $label = get_field( "spec_{$s}_label" );
+        $value = get_field( "spec_{$s}_value" );
+        if ( $label && $value ) {
+          $specs[] = [ 'label' => $label, 'value' => $value ];
+        }
+      }
+    ?>
+
+    <!-- Doc header -->
+    <header class="ogvl-single__header">
+      <div class="ogvl-single__meta">
+        <span class="category-tag"><?php echo esc_html( $tag ); ?></span>
+        <?php if ( $doc_id ) : ?>
+          <span class="ogvl-mono-label"><?php echo esc_html( $doc_id ); ?></span>
+        <?php endif; ?>
+      </div>
+
+      <h1 class="ogvl-single__title"><?php the_title(); ?></h1>
+
+      <div class="ogvl-single__byline">
+        <span class="ogvl-mono-label">UPD <?php echo esc_html( $updated ); ?></span>
+        <?php if ( $read ) : ?>
+          <span class="ogvl-mono-label ogvl-single__sep" aria-hidden="true">|</span>
+          <span class="ogvl-mono-label"><?php echo esc_html( $read ); ?> READ</span>
+        <?php endif; ?>
+      </div>
+
+      <!-- Quick-ref spec sheet -->
+      <?php if ( $specs ) : ?>
+        <div class="ogvl-single__specs" role="region" aria-label="Technical specifications">
+          <p class="ogvl-single__specs-label">QUICK REF — TECHNICAL SPECS</p>
+          <dl class="ogvl-single__specs-grid">
+            <?php foreach ( $specs as $spec ) : ?>
+              <div class="ogvl-single__spec-row">
+                <dt><?php echo esc_html( $spec['label'] ); ?></dt>
+                <dd><?php echo esc_html( $spec['value'] ); ?></dd>
+              </div>
+            <?php endforeach; ?>
+          </dl>
+        </div>
+      <?php endif; ?>
+    </header>
+
+    <!-- Article body -->
+    <div class="ogvl-single__body entry-content">
+      <?php the_content(); ?>
+    </div>
+
+    <!-- Nav: prev / next -->
+    <nav class="ogvl-single__pagination" aria-label="Article navigation">
+      <?php
+      $prev = get_previous_post( false, '', 'doc_system' );
+      $next = get_next_post( false, '', 'doc_system' );
+      ?>
+      <?php if ( $prev ) : ?>
+        <a href="<?php echo esc_url( get_permalink( $prev ) ); ?>" class="ogvl-single__nav-link ogvl-single__nav-link--prev">
+          <span class="ogvl-mono-label">← PREVIOUS DOC</span>
+          <span class="ogvl-single__nav-title"><?php echo esc_html( get_the_title( $prev ) ); ?></span>
+        </a>
+      <?php endif; ?>
+      <?php if ( $next ) : ?>
+        <a href="<?php echo esc_url( get_permalink( $next ) ); ?>" class="ogvl-single__nav-link ogvl-single__nav-link--next">
+          <span class="ogvl-mono-label">NEXT DOC →</span>
+          <span class="ogvl-single__nav-title"><?php echo esc_html( get_the_title( $next ) ); ?></span>
+        </a>
+      <?php endif; ?>
+    </nav>
+
+    <?php endwhile; endif; ?>
+
+  </div>
+</main>
+<!-- /wp:html -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->
