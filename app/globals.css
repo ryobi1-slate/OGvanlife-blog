@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base Resets ──────────────────────────────────────────────────── */
+:root {
+  --color-graphite: #1C1F22;
+  --color-sand: #C8B28A;
+  --color-bone: #F1ECE3;
+  --color-steel: #6E747A;
+  --color-alert: #B23A2A;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1C1F22;
+  color: #F1ECE3;
+  font-family: 'Inter', 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography ───────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'Syncopate', sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #F1ECE3;
+}
+
+code, pre, .mono {
+  font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+}
+
+/* ─── Selection color ──────────────────────────────────────────────── */
+::selection {
+  background-color: rgba(200, 178, 138, 0.25);
+  color: #F1ECE3;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1C1F22;
+}
+::-webkit-scrollbar-thumb {
+  background: #333840;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6E747A;
+}
+
+/* ─── Utility Classes ──────────────────────────────────────────────── */
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+}
+
+/* Engineering grid overlay (subtle) */
+.bg-engineering-grid {
+  background-image:
+    linear-gradient(rgba(110, 116, 122, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110, 116, 122, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Spec dividers */
+.spec-divider {
+  border-top: 1px solid #333840;
+}
+
+/* Category tags */
+.category-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #C8B28A;
+  text-transform: uppercase;
+  border: 1px solid rgba(200, 178, 138, 0.3);
+  padding: 2px 8px;
+  display: inline-block;
+}
+
+/* Card hover state */
+.article-card {
+  border: 1px solid #333840;
+  background-color: #252A2E;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.article-card:hover {
+  border-color: #6E747A;
+  background-color: #2A2F34;
+}
+
+/* Bar chart fill animation */
+@keyframes barFill {
+  from { width: 0; }
+  to   { width: var(--target-width); }
+}
+
+.bar-animated {
+  animation: barFill 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Nav underline indicator */
+.nav-link {
+  position: relative;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6E747A;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #F1ECE3;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #C8B28A;
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
