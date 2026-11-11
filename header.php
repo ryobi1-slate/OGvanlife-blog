@@ -1,4 +1,23 @@
-<!-- wp:html -->
+<?php
+/**
+ * OG Van Life: header.php
+ *
+ * Opens the document. Closed by footer.php.
+ *
+ * @package ogvanlife
+ */
+
+defined( 'ABSPATH' ) || exit;
+?><!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+
 <header class="ogvl-header" id="ogvl-header" role="banner">
   <nav class="ogvl-nav" aria-label="Primary navigation">
 
@@ -74,4 +93,3 @@
     </a>
   </div>
 </header>
-<!-- /wp:html -->

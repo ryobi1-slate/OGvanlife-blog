@@ -1,6 +1,14 @@
-<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+<?php
+/**
+ * OG Van Life: van_doc archive body, shared by the post type archive
+ * and the doc_system taxonomy archive.
+ *
+ * @package ogvanlife
+ */
 
-<!-- wp:html -->
+defined( 'ABSPATH' ) || exit;
+global $wp_query;
+?>
 <main class="ogvl-archive" role="main" id="main-content">
   <div class="ogvl-archive__inner">
 
@@ -98,6 +106,3 @@
 
   </div>
 </main>
-<!-- /wp:html -->
-
-<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

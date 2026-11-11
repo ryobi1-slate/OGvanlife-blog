@@ -1,4 +1,12 @@
-<!-- wp:html -->
+<?php
+/**
+ * OG Van Life: footer.php
+ *
+ * @package ogvanlife
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
 <footer class="ogvl-footer" role="contentinfo">
 
   <!-- Main footer grid -->
@@ -76,4 +84,7 @@
   </div>
 
 </footer>
-<!-- /wp:html -->
+
+<?php wp_footer(); ?>
+</body>
+</html>
