@@ -1,6 +1,19 @@
-<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+<?php
+/**
+ * OG Van Life: single van_doc
+ *
+ * The affiliate disclosure is NOT rendered here. It is prepended to
+ * the_content() by a filter in inc/affiliate-disclosure.php, so it appears
+ * directly above the article body whenever has_affiliate_links is on.
+ *
+ * @package ogvanlife
+ */
 
-<!-- wp:html -->
+defined( 'ABSPATH' ) || exit;
+
+get_header();
+?>
+
 <main class="ogvl-single" role="main" id="main-content">
   <div class="ogvl-single__inner">
 
@@ -85,6 +98,5 @@
 
   </div>
 </main>
-<!-- /wp:html -->
 
-<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->
+<?php get_footer();

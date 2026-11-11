@@ -131,29 +131,5 @@
       }
     }
   },
-  "customTemplates": [
-    {
-      "name": "single-van_doc",
-      "title": "Van Doc Single",
-      "postTypes": ["van_doc"]
-    },
-    {
-      "name": "archive",
-      "title": "Archive",
-      "postTypes": ["van_doc"]
-    }
-  ],
-  "templateParts": [
-    {
-      "name": "header",
-      "title": "Header",
-      "area": "header"
-    },
-    {
-      "name": "footer",
-      "title": "Footer",
-      "area": "footer"
-    }
-  ],
   "patterns": []
 }
