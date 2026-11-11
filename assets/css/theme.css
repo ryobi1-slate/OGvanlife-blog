@@ -1725,3 +1725,33 @@ code, pre, kbd, samp {
     grid-template-columns: 1fr;
   }
 }
+
+/* Affiliate disclosure (flag-driven, see inc/affiliate-disclosure.php) */
+.ogvl-disclosure {
+  border: 1px solid var(--ogvl-graphite-border);
+  border-left: 3px solid var(--ogvl-sand);
+  background: var(--ogvl-graphite-light);
+  padding: 0.875rem 1.25rem;
+  margin: 0 0 2rem;
+}
+
+.ogvl-disclosure__label {
+  font-family: var(--ogvl-font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.16em;
+  color: var(--ogvl-sand);
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+}
+
+.ogvl-disclosure__body {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ogvl-steel-light);
+  margin: 0;
+}
+
+.ogvl-disclosure__body a {
+  color: var(--ogvl-sand);
+  text-decoration: underline;
+}

@@ -77,6 +77,7 @@ add_action( 'wp_enqueue_scripts', function () {
 // ─── CPT & ACF ──────────────────────────────────────────────────────────────
 
 require_once get_template_directory() . '/inc/van-doc-cpt.php';
+require_once get_template_directory() . '/inc/affiliate-disclosure.php';
 
 // ACF JSON sync — save field groups to acf-json/ for version control
 add_filter( 'acf/settings/save_json', function () {

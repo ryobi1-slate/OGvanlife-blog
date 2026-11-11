@@ -73,6 +73,26 @@
         "append": ""
       },
       {
+        "key": "field_has_affiliate_links",
+        "label": "Has Affiliate Links",
+        "name": "has_affiliate_links",
+        "aria-label": "",
+        "type": "true_false",
+        "instructions": "Turn on when this doc contains affiliate links. Shows the disclosure above the content. Wording is edited in inc/affiliate-disclosure.php.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "This doc contains affiliate links",
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
         "key": "field_spec_1_label",
         "label": "Spec 1 — Label",
         "name": "spec_1_label",
